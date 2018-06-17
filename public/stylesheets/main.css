@@ -1,0 +1,102 @@
+
+.img-fluid {
+    width: 100%;
+    
+}
+.img-thumbnail{
+    padding:0;
+}
+#description{
+    padding:7px;
+}
+#forgot{
+    text-align: right;
+}
+#login{
+    padding: 10px;
+    margin-left: 40%
+}
+#button{
+    margin: auto;
+}
+
+#headcontent{
+    margin: auto;
+    padding: 10px;
+}
+#deleteform{
+    display: inline;
+}
+#deletecomment{
+    display: inline;
+}
+#nosearch{
+    text-align: center
+}
+imageWrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+.imageWrapper img {
+    display: inline-block;
+    position: relative;
+    /* float: center; */
+    height: 200px;
+    width: 257px;
+    padding: 0%;
+    margin:0%;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:  auto;
+}
+
+  
+.img__wrap {
+    position: relative;
+    height: 200px;
+    width: 257px;
+  }
+  
+  .img__description_layer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(36, 62, 206, 0.6);
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+  }
+  
+  .img__wrap:hover .img__description_layer {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .img__description {
+    transition: .2s;
+    transform: translateY(1em);
+  }
+  
+  .img__wrap:hover .img__description {
+    transform: translateY(0);
+  }
+#camp_name{
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Oxygen', sans-serif;
+  }
+#button_info{
+    font-size: 12px;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold;
+    margin-top: 60%
+}

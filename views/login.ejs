@@ -1,0 +1,33 @@
+<% include .\partials\header.ejs %>
+<div id="login"  class="container">
+   
+    <div  class="row">
+        <div class="col-sm-4 col-xs-3">
+                <div class="list-group">
+                        <li class="list-group-item"><form action="/login" method="post">
+                                <div class="ui equal width form">
+                                    <h1>Log in!</h1>
+                                    <div class="fields">
+                                      <div class="field">
+                                            <label>Username</label>
+                                            <input name="username" type="text" autocomplete="off" placeholder="Username" required>
+                                      </div>  
+                                    </div>
+                                    <div class="fields">
+                                        <div class="field">
+                                            <label>Password</label>
+                                            <input name="password" type="password" autocomplete="off" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button id="button"  class="btn btn-outline-success btn-lg">Login!</button>
+                                <p></p>
+                                <a  href="/forgot">Forgot Password?click here to Reset!</a>
+                            </form>
+                        </li>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% include .\partials\footer.ejs %>

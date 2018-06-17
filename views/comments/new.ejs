@@ -1,0 +1,13 @@
+<% include ../partials/header %>
+<div class="container">
+<header class="jumbotron">
+        <h1>Add new commen to <%= campground.name %></h1>
+</header>
+<form action="/campgrounds/<%=campground._id%>/comments" method="POST">
+    <input type="text" class="form-control" name="comment[text]" autocomplete="off" placeholder="text">
+    <p></p>
+   <button class="btn btn-lg btn-outline-success">Submit!</button></p>
+</form>
+<a href="/campgrounds">Go Back</a>
+</div>
+<% include ../partials/footer %>

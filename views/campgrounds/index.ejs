@@ -1,0 +1,53 @@
+<% include ..\partials\header.ejs %>
+
+
+<div class="container">
+                <%if(currentUser && currentUser.isAdmin){%>
+                        <h3>You have admin authority!</h3>
+                <%}%>         
+<header class="jumbotron">
+       
+        <h1>Find Camping Experiences</h1>
+        <h5>Share your camping experience here..</h5>
+
+        
+</header>
+ 
+<div class="row text-center" style="display: flex;flex-wrap: wrap">
+       <% if(campgrounds.length===0){%>
+                <h3 style="padding-left: 40%">No campground has found!</h3>
+        <%}else{%>
+        <%campgrounds.forEach(function(campground){%>
+    <div class="col-md-3 col-sm-6">
+        <div class="imageWrapper ">
+                <a  href="/campgrounds/<%=campground._id%>">
+                        <div class="img__wrap">
+                                <img class="img-fluid img-thumbnail img__img"  src="<%-campground.image%>" alt="broken">
+        <div class="img__description_layer">
+                <!-- <p class="cornerLink "><%=campground.name%></p> -->
+               <p id="camp_name" class="img__description"><%=campground.name%></p>
+        <div class="img__description_layer">
+                <button id="button_info" class="btn btn-xm btn-outline-light">Click Here For More Info!</button>
+        </div>
+        </div>
+</div>
+</div></a>
+       
+    </div>
+    <%})%>  
+<%} %>
+</div>
+</div>
+<script>
+        $('.hover').mouseover(function() {
+        $('.text').css("visibility","visible");
+        });
+
+        $('.hover').mouseout(function() {
+        $('.text').css("visibility","hidden");
+        });
+
+
+</script>
+
+<% include ..\partials\footer.ejs %>

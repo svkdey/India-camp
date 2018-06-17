@@ -1,0 +1,21 @@
+<% include ..\partials\header.ejs %>
+<div class="container">
+<header class="jumbotron">
+        <h1>Share Your Camp Experience</h1>
+</header>
+<form action="/campgrounds" method="POST"  enctype="multipart/form-data">
+    <input type="text" class="form-control" name="campground[name]" placeholder="name">
+    <p></p>
+    <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+    <p></p>
+    <textarea name="campground[description]" class="form-control"  cols="5" rows="10" placeholder="Share your experence"></textarea>
+    <p></p>
+    <p>
+   <button class="btn btn-lg btn-outline-success">Submit!</button></p>
+</form>
+<a href="/campgrounds">Go Back</a>
+</div>
+<% include ..\partials\footer.ejs %>

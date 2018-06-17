@@ -1,0 +1,74 @@
+
+<% include ..\partials\header.ejs %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead"><strong> India Camp</strong></p>
+            <div class="list-group">
+                <li class="list-group-item">ad 1</li>
+                <li class="list-group-item">ad 2</li>
+                <li class="list-group-item">ad 3</li>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="img-thumbnail">
+                    <img class="img-fluid" src="<%=campground.image%>">
+                    
+                    <div id="headcontent">
+                        <h3 id="h3"><%=campground.name%></h3>
+                            <p id="description"><%=campground.description%></p>
+                            <p><em>Submitted by <a href="/users/<%= campground.author.id %>"> <%= campground.author.username %></a>, <%= moment(campground.createdAt).fromNow() %></em></p>
+                        <% if(currentUser && campground.author.id.equals(currentUser._id)||currentUser &&currentUser.isAdmin){%>
+                        <a class="ui inverted orange button" href="/campgrounds/<%=campground._id%>/edit">Edit</a>  
+                        <form id="deleteform" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                        <button class="ui inverted red button">Delete</button></form>
+                        <%}%>
+                </div> 
+            </div>
+           
+                     <hr>
+                     <% campground.comments.forEach(function(comment){%>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="ui comments">
+                                    <div class="comment">
+                                      <!-- <a class="avatar">
+                                        <img src="<%=comment.author.avatar%>">
+                                      </a> -->
+                                        <div class="content">
+                                            <a class="author" ><%=comment.author.username%></a>
+                                            <div class="metadata">
+                                            <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
+                                            </div>
+                                                <div class="text">
+                                                <%=comment.text%>
+                                            </div>
+                                                <% if(currentUser && comment.author.id.equals(currentUser._id)||currentUser &&currentUser.isAdmin){%>
+                                                <a class="btn btn-outline-primary btn-xs" href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit">Edit</a>
+                                                <form id="deletecomment" action="/campgrounds/<%=campground._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
+                                                <button  class=" btn btn-outline-danger btn-xs">Delete</button></form>
+                                                    <%}%>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                        <%})%>
+                            <form action="/campgrounds/<%=campground._id%>/comments" method="POST">
+                            <textarea class="form-control" name="comment[text]" autocomplete="off" placeholder="Add new comment" cols="30" rows="2"></textarea>
+                            <p></p>
+                            <button class="btn btn-outline-danger btn-xs btn-inline">Submit!</button></p>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+  
+
+
+
+<% include ..\partials\footer.ejs %>
